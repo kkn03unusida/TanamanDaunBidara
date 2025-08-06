@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daun Bidara - KKN 03 UNUSIDA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .plant-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .plant-scientific {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* Plant Image */
+        .image-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .plant-image {
+            width: 100%;
+            max-width: 500px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .plant-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section:nth-child(even) {
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        /* Description */
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: #f7fafc;
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .benefit-description {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Care Steps */
+        .care-grid {
+            display: grid;
+            gap: 25px;
+            margin-top: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .care-step {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .care-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-color: #764ba2;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .plant-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .description {
+                padding: 30px 25px;
+            }
+            
+            .benefit-card, .care-step {
+                padding: 25px 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header {
+                padding: 60px 0;
+            }
+            
+            .image-section {
+                padding: 40px 0;
+            }
+            
+            .plant-image {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .plant-title {
+                font-size: 2rem;
+            }
+            
+            .care-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .care-step:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="plant-title">Tumbuhan Daun Bidara</h1>
+                <p class="plant-scientific">Ziziphus mauritiana</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Plant Image -->
+    <section class="image-section">
+        <div class="container">
+            <img src="image/daun bidara.jpeg" alt="Daun Bidara" class="plant-image">
+        </div>
+    </section>
+
+    <!-- Description -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Tentang Daun Bidara</h2>
+            <div class="description">
+                Daun bidara (Ziziphus mauritiana) adalah tanaman herbal yang telah dikenal sejak zaman dahulu karena khasiatnya yang luar biasa. Tanaman ini memiliki daun berbentuk oval dengan tepi bergerigi halus dan berwarna hijau segar. Dalam tradisi pengobatan herbal, daun bidara telah digunakan selama berabad-abad untuk mengatasi berbagai masalah kesehatan berkat kandungan senyawa aktif seperti saponin, flavonoid, dan alkaloid yang memiliki sifat antibakteri, antijamur, dan antiinflamasi.
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Manfaat Daun Bidara</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🦠</div>
+                    <h3 class="benefit-title">Antibakteri Alami</h3>
+                    <p class="benefit-description">Mengandung senyawa saponin dan flavonoid yang efektif melawan bakteri dan jamur, membantu mengatasi infeksi kulit dan luka.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌿</div>
+                    <h3 class="benefit-title">Kesehatan Pencernaan</h3>
+                    <p class="benefit-description">Membantu mengatasi masalah pencernaan seperti diare dan gangguan lambung berkat kandungan tanin yang menenangkan saluran cerna.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">✨</div>
+                    <h3 class="benefit-title">Perawatan Kulit</h3>
+                    <p class="benefit-description">Sifat antiseptik alami membantu mengatasi masalah kulit seperti eksim, gatal-gatal, dan ketombe secara efektif.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">Meningkatkan Imunitas</h3>
+                    <p class="benefit-description">Kandungan antioksidan tinggi membantu meningkatkan sistem kekebalan tubuh dan melawan radikal bebas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Tips -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Tips Perawatan</h2>
+            <div class="care-grid">
+                <div class="care-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Lokasi dan Tanah</h3>
+                        <p>Pilih lokasi dengan sinar matahari cukup dan tanah yang gembur dengan drainase baik. Tanaman bidara menyukai tanah dengan pH 6,0-7,5.</p>
+                    </div>
+                </div>
+                <div class="care-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Penyiraman</h3>
+                        <p>Siram secara teratur namun jangan berlebihan. Tanaman bidara cukup tahan kekeringan, siram 2-3 kali seminggu atau sesuai kondisi cuaca.</p>
+                    </div>
+                </div>
+                <div class="care-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pemangkasan</h3>
+                        <p>Lakukan pemangkasan rutin untuk menjaga bentuk tanaman dan menghilangkan cabang yang mati atau sakit.</p>
+                    </div>
+                </div>
+                <div class="care-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Pemupukan</h3>
+                        <p>Berikan pupuk organik atau kompos setiap 3-4 bulan sekali untuk menjaga kesuburan tanah dan pertumbuhan optimal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; KKN 03 UNUSIDA 2025 . Dibuat dengan cinta untuk pecinta tumbuhan.</p>
+        </div>
+    </footer>
+</body>
+</html>
